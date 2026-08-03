@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskFlow · Gestión de Tareas</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app__header">
+      <h1>Task<span>Flow</span></h1>
+      <p class="subtitle">Gestión de tareas con JavaScript moderno</p>
+    </header>
+
+    <section class="panel">
+      <form id="form-tarea" class="form-tarea">
+        <input
+          type="text"
+          id="input-descripcion"
+          placeholder="¿Qué necesitás hacer?"
+          autocomplete="off"
+          required
+        />
+        <input type="datetime-local" id="input-fecha-limite" />
+        <button type="submit" id="btn-agregar">Agregar</button>
+      </form>
+      <p class="hint">Tip: presioná <kbd>Enter</kbd> dentro del campo de texto para agregar rápido.</p>
+    </section>
+
+    <section class="panel">
+      <div class="toolbar">
+        <div class="filtros" id="filtros">
+          <button class="filtro activo" data-filtro="todas">Todas</button>
+          <button class="filtro" data-filtro="pendiente">Pendientes</button>
+          <button class="filtro" data-filtro="completada">Completadas</button>
+        </div>
+        <div class="acciones-api">
+          <button id="btn-importar-api">Importar tareas de API</button>
+          <button id="btn-sincronizar-api">Sincronizar con API</button>
+        </div>
+      </div>
+
+      <ul id="lista-tareas" class="lista-tareas">
+        <!-- Las tareas se renderizan dinámicamente -->
+      </ul>
+
+      <p id="estado-vacio" class="estado-vacio">No hay tareas todavía. ¡Agregá la primera! ✨</p>
+    </section>
+
+    <div id="notificaciones" class="notificaciones" aria-live="polite"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
